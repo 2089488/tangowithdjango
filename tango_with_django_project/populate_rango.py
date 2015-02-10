@@ -9,7 +9,7 @@ from rango.models import Category, Page
 
 def populate():
 
-    my_page_cat = add_cat('MariuszSzmajduch2089488', 777, 777)
+    my_page_cat = add_cat('Mariusz Szmajduch 2089488', 777, 777)
 
     add_page(cat=my_page_cat,
              title="GitHub repository",
