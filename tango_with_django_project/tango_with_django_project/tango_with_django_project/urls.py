@@ -11,4 +11,5 @@ urlpatterns = patterns('',
     url(r'^myTestApp/', include('myTestApp.urls')),
     url(r'^counting/', include('counting.urls')),
     url(r'^alphabet/', include('alphabet.urls')),
+    url(r'^me/', include('me.urls')),
 )

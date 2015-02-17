@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'myTestApp',
     'counting',
     'alphabet',
+    'me',
 )
 
 MIDDLEWARE_CLASSES = (
