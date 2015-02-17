@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-SETTINGS_DIR = os.path.dirname(__file__)
+TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
 
 
 # Quick-start development settings - unsuitable for production
@@ -55,12 +55,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    '<workspace>/tango_with_django_project/templates/',
-)
+TEMPLATE_DIRS = [
+    TEMPLATE_PATH,
+]
 
 ROOT_URLCONF = 'tango_with_django_project.urls'
 
