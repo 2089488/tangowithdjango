@@ -4,8 +4,7 @@ from django.shortcuts import render
 def home(request):
 
     context_dict = {
-        'my_name' : 'Mariusz Szmajduch',
-        'student_id' : "2089488",
+        'my_name' : 'Mariusz',
     }
 
     return render(request, 'aboutme/justme.html', context_dict)

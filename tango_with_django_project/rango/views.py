@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 #def index(request):
 #    return HttpResponse("Rango says: Hello world!")
@@ -17,4 +16,10 @@ def index(request):
     return render(request, 'rango/index.html', context_dict)
 
 def about(request):
-    return HttpResponse("<a href='/aboutme/'>little bit about the author</a>")
+
+    context_dict = {
+        'my_name' : 'Mariusz Szmajduch',
+        'student_id' : "2089488",
+    }
+
+    return render(request, 'rango/about.html', context_dict)

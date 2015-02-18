@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>about</title>
+</head>
+<body>
+
+<p>
+    <img src="{% static 'images/myPic.jpg' %}" alt="my picture" />
+    </p>
+    <p>
+        This tutorial has been put together by {{my_name}}, {{student_id}}
+    </p>
+    <P>
+        <a href="/aboutme/">more about me...</a>
+    </P>
+    <p>
+        <a href="/rango/">back</a>
+    </p>
+
+</body>
+</html>
