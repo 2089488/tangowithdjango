@@ -1,14 +1,27 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
 def home(request):
-    return HttpResponse("It's just me!<br />"
-                        "<a href='/aboutme/myname/'>I am...</a><br />"
-                        "<a href='/aboutme/myage/'>I am...</a>")
+
+    context_dict = {
+        'my_name' : 'Mariusz Szmajduch',
+        'student_id' : "2089488",
+    }
+
+    return render(request, 'aboutme/justme.html', context_dict)
 
 def myname(request):
-    return HttpResponse("Mariusz! Hello :)<br />"
-                        "<a href='/aboutme/'>home</a>")
+
+    context_dict = {
+        'name' : '...friends call me "Pazur" (Talon)',
+        'greeting' : 'Hi! Salut! Siema! Sai cien! Tik-tak, tik-tak!',
+        'face' : '(:-D)'
+    }
+    return render(request, 'aboutme/myname.html', context_dict)
 
 def myage(request):
-    return HttpResponse("...150 years old, REALLY! ;)"
-                        "<br /><a href='/aboutme/'>home</a>")
+
+    dict = { 'myCurrentAge' : '153'}
+
+    return render(request, 'aboutme/age.html', dict)
+

@@ -17,4 +17,4 @@ def index(request):
     return render(request, 'rango/index.html', context_dict)
 
 def about(request):
-    return HttpResponse("This tutorial has been put together by Mariusz Szmajduch, 2089488")
+    return HttpResponse("<a href='/aboutme/'>little bit about the author</a>")
