@@ -8,6 +8,16 @@ from rango.models import Category, Page
 
 
 def populate():
+    me_cat = add_cat("Mariusz Szmajduch", 777, 77)
+
+    add_page(cat=me_cat,
+             title="GitHub",
+             url="https://github.com/2089488/tangowithdjango")
+
+    add_page(cat=me_cat,
+             title="pythonanywhere",
+             url="https://www.pythonanywhere.com/user/2089488/consoles/")
+
     python_cat = add_cat('Python', 128, 64)
 
     add_page(cat=python_cat,
@@ -58,9 +68,7 @@ def add_page(cat, title, url, views=0):
     return p
 
 def add_cat(name, views, likes):
-    c = Category.objects.get_or_create(name=name)[0]
-    c.views=views
-    c.likes=likes
+    c = Category.objects.get_or_create(name=name, views=views, likes=likes)[0]
     return c
 
 # Start execution here!
