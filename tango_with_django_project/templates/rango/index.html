@@ -18,11 +18,7 @@
     <p>
         <h2>Top categories:</h2>
         {% if categories %}
-            <ul>
-                {% for category in categories %}
-                <li>{{ category.name }}</li>
-                {% endfor %}
-            </ul>
+            {{ categories|unordered_list }}
         {% else %}
             <strong>There are no categories present.</strong>
         {% endif %}
