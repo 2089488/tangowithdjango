@@ -18,9 +18,22 @@
     <p>
         <h2>Top categories:</h2>
         {% if categories %}
-            {{ categories|unordered_list }}
-        {% else %}
+            <ul>
+                {% for category in categories %}
+                <!-- Following line changed to add an HTML hyperlink -->
+                <li><a href="/rango/category/{{ category.slug }}">{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
+       {% else %}
             <strong>There are no categories present.</strong>
+       {% endif %}
+    </p>
+    <p>
+        <h2>Top pages:</h2>
+        {% if pages %}
+            {{ pages|unordered_list }}
+        {% else %}
+            <strong>no pages currently</strong>
         {% endif %}
     </p>
     <p>
