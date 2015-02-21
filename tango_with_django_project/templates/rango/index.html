@@ -31,11 +31,16 @@
     <p>
         <h2>Top pages:</h2>
         {% if pages %}
-            {{ pages|unordered_list }}
+            <ul>
+                {% for page in pages %}
+                <li><a href="/rango/category/{{ page }}">{{ page }}</a></li>
+                {% endfor %}
+            </ul>
         {% else %}
             <strong>no pages currently</strong>
         {% endif %}
     </p>
+    <a href="add_category">Add a New Category</a><br />
     <p>
         <a href="/rango/about/">About</a><br />
     </p>

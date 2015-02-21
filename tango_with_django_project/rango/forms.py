@@ -3,9 +3,9 @@ from rango.models import Page, Category
 
 class CategoryForm(forms.ModelForm):
     name = forms.CharField(max_length=128, help_text="Please enter the category name")
-    views = form.IntegerField(widget=forms.HiddenImput(), inital=0)
-    likes = form.IntegerField(widget=forms.HiddenImput(), initial=0)
-    slug = forms.CharacterField(widget=forms.HiddenImput(), required=false)
+    views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
+    likes = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
+    slug = forms.CharField(widget=forms.HiddenInput(), required=False)
 
     #An inline class to provide additional information on the form.
     class Meta:
@@ -14,9 +14,9 @@ class CategoryForm(forms.ModelForm):
         fields = ('name',)
 
 class PageForm (forms.ModelForm):
-    title = forms.CharField(max_lenngth=128, help_text="Please enter the name of the page")
-    url = forms.URLField(nax_length=200, help_text="Please enter the URL for the page")
-    views = forms.IntegerField(widget=forms.HiddwnImput(), initial=0)
+    title = forms.CharField(max_length=128, help_text="Please enter the name of the page")
+    url = forms.URLField(max_length=200, help_text="Please enter the URL for the page")
+    views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
 
     class Meta:
         model = Page
