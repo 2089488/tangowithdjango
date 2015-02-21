@@ -1,9 +1,7 @@
 from django.shortcuts import render
 from rango.models import Category, Page
 from django.http import HttpResponse
-
-#def index(request):
-#    return HttpResponse("Rango says: Hello world!")
+from rango.forms import CategoryForm
 
 def index(request):
 
