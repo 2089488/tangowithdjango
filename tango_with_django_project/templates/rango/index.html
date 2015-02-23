@@ -3,11 +3,15 @@
 {% load staticfiles %}
 
 <html>
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 <head lang="en">
     <meta charset="UTF-8">
     <title>Rango</title>
 </head>
+<<<<<<< HEAD
 
 <body>
     <h1>Rango says...:</h1>
@@ -46,4 +50,22 @@
     </p>
 </body>
 
+=======
+<body>
+    <h1>Rango says...hello world!</h1>
+
+   {% if categories %}
+        <ul>
+            {% for category in categories %}
+            <li><a href="/rango/category/{{ category.slug }}">{{ category.name }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <strong>There are no categories present.</strong>
+    {% endif %}
+
+    <a href="/rango/about/">About</a><br />
+    <a href="/rango/add_category/">Add a New Category</a><br />
+</body>
+>>>>>>> master
 </html>

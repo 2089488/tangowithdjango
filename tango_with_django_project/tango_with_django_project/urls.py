@@ -9,12 +9,22 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^rango/', include('rango.urls')),
+<<<<<<< HEAD
     url(r'^aboutme/', include('aboutme.urls')),
+=======
+>>>>>>> master
 )
 
 if settings.DEBUG:
     urlpatterns += patterns(
         'django.views.static',
+<<<<<<< HEAD
         (r'^media/(?P<path>.*)',
         'serve',
         {'document_root': settings.MEDIA_ROOT}), )
+=======
+        (r'media/(?P<path>.*)',
+        'serve',
+         {'document_root': settings.MEDIA_ROOT}),
+    )
+>>>>>>> master

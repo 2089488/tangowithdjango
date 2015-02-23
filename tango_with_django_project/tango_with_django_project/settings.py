@@ -11,17 +11,28 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+<<<<<<< HEAD
 
 TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
 
 STATIC_PATH = os.path.join(BASE_DIR, 'static')
+=======
+TEMPLATE_PATH = os.path.join(BASE_DIR, "templates")
+TEMPLATE_DIRS = [
+    TEMPLATE_PATH,
+]
+>>>>>>> master
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+<<<<<<< HEAD
 SECRET_KEY = 't2#82%nm_(w^xm=zdly560k8crq9f^k8r!d7#u_@-sjp0idl=8'
+=======
+SECRET_KEY = 'c-8cs)3on8g@0-b7y9%_p5)p&i2=8(==jrn6-97sd6%h8kbo7a'
+>>>>>>> master
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -30,7 +41,10 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 # Application definition
 
 INSTALLED_APPS = (
@@ -41,10 +55,13 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rango',
+<<<<<<< HEAD
     'myTestApp',
     'counting',
     'alphabet',
     'aboutme',
+=======
+>>>>>>> master
 )
 
 MIDDLEWARE_CLASSES = (
@@ -57,10 +74,13 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+<<<<<<< HEAD
 TEMPLATE_DIRS = [
     TEMPLATE_PATH,
 ]
 
+=======
+>>>>>>> master
 ROOT_URLCONF = 'tango_with_django_project.urls'
 
 WSGI_APPLICATION = 'tango_with_django_project.wsgi.application'
@@ -89,11 +109,15 @@ USE_L10N = True
 
 USE_TZ = True
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+<<<<<<< HEAD
 
 STATICFILES_DIRS = [
     STATIC_PATH,
@@ -101,4 +125,12 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 
+=======
+STATIC_PATH = os.path.join(BASE_DIR, "static")
+STATICFILES_DIRS = (
+    STATIC_PATH,
+)
+
+MEDIA_URL = '/media/'
+>>>>>>> master
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

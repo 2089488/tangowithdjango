@@ -17,7 +17,11 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(unique=True, max_length=128)),
                 ('views', models.IntegerField(default=0)),
                 ('likes', models.IntegerField(default=0)),
+<<<<<<< HEAD
                 ('slug', models.SlugField(default=b'', unique=True)),
+=======
+                ('slug', models.SlugField(unique=True)),
+>>>>>>> master
             ],
             options={
             },
