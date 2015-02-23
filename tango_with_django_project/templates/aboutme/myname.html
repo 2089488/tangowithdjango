@@ -1,26 +1,18 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 
 {% load staticfiles %}
 
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Hi!</title>
-</head>
-<body>
+{% block title %}Hi!{% endblock %}
+
+{% block body_block %}
 
     <p>
         <h1>{{greeting}}</h1>
     </p>
     <br />
     <img src="{% static 'images/talon.jpg' %}" alt="talon" />
-    <br />
-    {{name}}!
-    <p>
-        <br /> {{face}}<br />
-    </p>
-
-    <a href='/aboutme/'>home</a>
-
-</body>
-</html>
+    <p />
+    {{name}}! {{face}}
+    <p/>
+    <a href='{% url "aboutme" %}'><- back <-</a>
+{% endblock %}

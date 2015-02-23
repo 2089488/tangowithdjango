@@ -1,13 +1,10 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
 
 {% load staticfiles %}
 
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>Just me</title>
-</head>
-<body>
+{% block title %}Just me{% endblock %}
+
+{% block body_block %}
 
     <h2>It's just me!</h2>
     <br />
@@ -20,9 +17,5 @@
     <p>
        <a href='{% url "my_name" %}'>but friends...</a><br />
     <a href='{% url "my_age" %}'>I am...</a>
-    </p><p>
-        <b>back to "Rango"</b> -> <a href='{% url "index" %}'>click!</a>
     </p>
-
-</body>
-</html>
+{% endblock %}
