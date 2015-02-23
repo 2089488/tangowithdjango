@@ -18,7 +18,7 @@
             {% endif %}
 
             <p>
-                <a href="{% url 'add_page' {{ slug}} %}">test - /rango/add_page/{{ slug }}</a>
+                <a href="{% url 'add_page' slug %}">Add New Page</a>
             <!-- <a href="/rango/{{ category_name }}/add_page/">Add a New Page</a> -->
             </p>
         {% else %}
@@ -26,7 +26,7 @@
         {% endif %}
 
         <p>
-            <a href="{{ back }}">back</a>
+            <a href="{% url 'index' %}">back</a>
         </p>
 </body>
 </html>

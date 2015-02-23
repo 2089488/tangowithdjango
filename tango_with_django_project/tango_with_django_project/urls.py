@@ -9,9 +9,6 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^rango/', include('rango.urls')),
-    url(r'^myTestApp/', include('myTestApp.urls')),
-    url(r'^counting/', include('counting.urls')),
-    url(r'^alphabet/', include('alphabet.urls')),
     url(r'^aboutme/', include('aboutme.urls')),
 )
 

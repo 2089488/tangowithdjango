@@ -18,10 +18,10 @@
         My name is {{my_name}},
     </p>
     <p>
-       <a href='/aboutme/myname/'>but friends...</a><br />
-    <a href='/aboutme/myage/'>I am...</a>
+       <a href='{% url "my_name" %}'>but friends...</a><br />
+    <a href='{% url "my_age" %}'>I am...</a>
     </p><p>
-        <b>back to "Rango"</b> -> <a href='/rango/'>click!</a>
+        <b>back to "Rango"</b> -> <a href='{% url "index" %}'>click!</a>
     </p>
 
 </body>
