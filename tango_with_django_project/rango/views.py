@@ -238,7 +238,6 @@ def add_page(request, category_name_slug):
 @login_required
 def restricted(request):
     return render(request, 'rango/restricted.html')
-from django.contrib.auth import logout
 
 # # Use the login_required() decorator to ensure only those logged in can access the view.
 # @login_required
@@ -248,4 +247,5 @@ from django.contrib.auth import logout
 #
 #     # Take the user back to the homepage.
 #     return HttpResponseRedirect('/rango/')
+
 

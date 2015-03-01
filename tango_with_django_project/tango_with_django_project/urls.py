@@ -16,6 +16,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^rango/', include('rango.urls')),
     url(r'^aboutme/', include('aboutme.urls')),
+        # auth_views.password_change_done,name='auth_password_change_done'),
     # url pattern to override the default pattern in accounts.
     url(r'^accounts/register/$', MyRegistrationView.as_view(), name='registration_register'),
     url(r'^accounts/', include('registration.backends.simple.urls')),
