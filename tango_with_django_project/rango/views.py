@@ -248,4 +248,6 @@ def restricted(request):
 #     # Take the user back to the homepage.
 #     return HttpResponseRedirect('/rango/')
 
+def password_change_done(request):
+    return render(request, 'password/change_done.html')
 
