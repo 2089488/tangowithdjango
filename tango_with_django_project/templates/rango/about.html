@@ -5,16 +5,20 @@
 {% block title %}About{% endblock %}
 
 {% block body_block %}
-<p>
-    <img src="{% static 'images/myPic.jpg' %}" alt="my picture" />
-    </p>
-    <p>
-        This tutorial has been put together by {{my_name}}, {{student_id}}
-    </p>
-    <P>
-        <a href="{% url 'aboutme' %}">more about me...</a>
-    </P>
-    <p>
-        page visited {{ visits }} times.
-    </p>
+    <div class="page-header">
+                <h1>About</h1>
+            </div>
+            <div>
+            <p></strong>This tutorial has been put together by {{my_name}}, {{student_id}}</p>
+
+            <img  width="90" height="100" src="{% static "images/rango.jpg" %}" alt="Picture of Rango" /> <!-- New line -->
+            <P>
+                <br />
+            <a href="{% url 'aboutme' %}">more about me...</a>
+            </P>
+            <p>
+            page visited {{ visits }} times.
+            </p>
+            </div>
+
 {% endblock %}

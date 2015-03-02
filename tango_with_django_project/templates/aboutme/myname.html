@@ -5,14 +5,15 @@
 {% block title %}Hi!{% endblock %}
 
 {% block body_block %}
-
-    <p>
-        <h1>{{greeting}}</h1>
-    </p>
-    <br />
-    <img src="{% static 'images/talon.jpg' %}" alt="talon" />
-    <p />
-    {{name}}! {{face}}
-    <p/>
-    <a href='{% url "aboutme" %}'><- back <-</a>
+    <div class="page-header">
+                    <h1>{{greeting}}</h1>
+                </div>
+                <div>
+                    <img src="{% static 'images/talon.jpg' %}" alt="talon" />
+                    <p />
+                    <br />
+                    {{name}}! {{face}}
+                    <p/>
+                    <a href='{% url "aboutme" %}'>back</a>
+                </div>
 {% endblock %}
