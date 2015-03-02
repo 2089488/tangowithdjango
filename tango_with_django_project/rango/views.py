@@ -249,3 +249,5 @@ def user_logout(request):
     # Take the user back to the homepage.
     return HttpResponseRedirect('/rango/')
 
+def password_change_done(request):
+    return render(request, '/registration/password_change_done.html')
