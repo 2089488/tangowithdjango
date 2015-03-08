@@ -1,10 +1,11 @@
 from django.shortcuts import render
-from rango.models import Category, Page
+from models import Category, Page
 from django.http import HttpResponse, HttpResponseRedirect
-from rango.forms import CategoryForm, PageForm, UserForm, UserProfileForm
+from forms import CategoryForm, PageForm, UserForm, UserProfileForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
+from bing_search import run_query
 
 def index(request):
 
@@ -251,3 +252,16 @@ def user_logout(request):
 
 def password_change_done(request):
     return render(request, '/registration/password_change_done.html')
+
+def search(request):
+
+    result_list = []
+
+    if request.method == 'POST':
+        query = request.POST['query'].strip()
+
+        if query:
+            # Run our Bing function to get the results list!
+            result_list = run_query(query)
+
+    return render(request, 'rango/search.html', {'result_list': result_list})
