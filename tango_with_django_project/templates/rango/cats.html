@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+
 {% if cats %}
     <ul class="nav nav-sidebar">
     {% for c in cats %}
@@ -6,7 +8,7 @@
         {% else  %}
             <li>
         {% endif %}
-        <a href="{% url 'category'  c.slug %}">{{ c.name }}</a></li>
+            <a href="{% url 'category'  c.slug %}">{{ c.name }}</a></li>
     {% endfor %}
 
 {% else %}
