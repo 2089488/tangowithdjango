@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block title %}Profile{% endblock %}
+
+{% block body_block %}
+    <div class="page-header">
+                <h1>{{ user.username }}</h1>
+            </div>
+                email: {{ user.email }} <br />
+                {% if user_profile %}
+                    website: <a href="{{ user_profile.website }}">{{user_profile.website}}</a>
+                {% endif %}
+            </div>
+
+            {% if user_profile.picture %}
+                <div>
+                    <img src="{% static user_profile.picture %}" alt="user's picture" />
+                </div>
+            {% endif %}
+
+{% endblock %}

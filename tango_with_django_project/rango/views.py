@@ -4,9 +4,10 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, render_to_response
+from django.template import RequestContext
 from forms import CategoryForm, PageForm, UserForm, UserProfileForm
-from models import Category, Page
+from models import Category, Page, UserProfile
 
 def index(request):
 
@@ -322,3 +323,17 @@ def track_url(request):
                 pass
 
     return redirect(url)
+
+@login_required
+def profile(request):
+    context = RequestContext(request)
+    cat_list = Category.objects.all()
+    context_dict = {'cat_list': cat_list}
+    x = User.objects.get(username=request.user)
+    try:
+        x_profile = UserProfile.objects.get(user=x)
+    except:
+        x_profile = None
+    context_dict['user'] = x
+    context_dict['user_profile'] = x_profile
+    return render_to_response('rango/profile.html', context_dict, context)
