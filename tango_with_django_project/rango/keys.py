@@ -1,1 +1,1 @@
-BING_API_KEY = '.................'
+BING_API_KEY = '8NE35bhaIANBi7BkdLg2QNqw5Mzc75NO9i+5kUHdSck'

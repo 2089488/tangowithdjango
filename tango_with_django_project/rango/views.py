@@ -2,6 +2,7 @@ from bing_search import run_query
 from datetime import datetime
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from forms import CategoryForm, PageForm, UserForm, UserProfileForm
@@ -209,7 +210,34 @@ def register(request):
     # Render the template depending on the context.
     return render(request,
             'rango/register.html',
-            {'user_form': user_form, 'profile_form': profile_form, 'registered': registered} )
+            {'user_form': user_form, 'profile_form': profile_form, 'registered': registered})
+
+def register_profile(request):
+
+    if request.method == 'POST':
+        profile_form = UserProfileForm(data=request.POST)
+
+        if  profile_form.is_valid():
+
+            profile = profile_form.save(commit=False)
+            profile.user = User.objects.get(username=request.user)
+
+            if 'picture' in request.FILES:
+                profile.picture = request.FILES['picture']
+
+            profile.save()
+
+            return redirect('/rango/')
+
+        else:
+            print profile_form.errors
+
+    else:
+        profile_form = UserProfileForm()
+
+    return render(request,
+            'rango/profile_registration.html',  { 'profile_form': profile_form })
+
 
 def user_login(request):
 
