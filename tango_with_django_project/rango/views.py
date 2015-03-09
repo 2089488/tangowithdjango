@@ -61,6 +61,17 @@ def category(request, category_name_slug):
 
     # Create a context dictionary which we can pass to the template rendering engine.
     context_dict = {}
+    context_dict['result_list'] = None
+    context_dict['query'] = None
+    if request.method == 'POST':
+        query = request.POST['query'].strip()
+
+        if query:
+            # Run our Bing function to get the results list!
+            result_list = run_query(query)
+
+            context_dict['result_list'] = result_list
+            context_dict['query'] = query
 
     try:
         # Can we find a category name slug with the given name?
@@ -72,7 +83,7 @@ def category(request, category_name_slug):
 
         # Retrieve all of the associated pages.
         # Note that filter returns >= 1 model instance.
-        pages = Page.objects.filter(category=category)
+        pages = Page.objects.filter(category=category).order_by('-views')
 
         # Adds our results list to the template context under name pages.
         context_dict['pages'] = pages
@@ -85,6 +96,9 @@ def category(request, category_name_slug):
         # We get here if we didn't find the specified category.
         # Don't do anything - the template displays the "no category" message for us.
         pass
+
+    if not context_dict['query']:
+        context_dict['query'] = category.name
 
     # Go render the response and return it to the client.
     return render(request, 'rango/category.html', context_dict)
@@ -129,8 +143,7 @@ def add_page(request, category_name_slug):
                 page.category = cat
                 page.views = 0
                 page.save()
-                # probably better to use a redirect here.
-                return category(request, category_name_slug)
+                return redirect('category', category_name_slug)
         else:
             print form.errors
     else:
@@ -253,18 +266,18 @@ def user_logout(request):
 def password_change_done(request):
     return render(request, '/registration/password_change_done.html')
 
-def search(request):
-
-    result_list = []
-
-    if request.method == 'POST':
-        query = request.POST['query'].strip()
-
-        if query:
-            # Run our Bing function to get the results list!
-            result_list = run_query(query)
-
-    return render(request, 'rango/search.html', {'result_list': result_list})
+# def search(request):
+#
+#     result_list = []
+#
+#     if request.method == 'POST':
+#         query = request.POST['query'].strip()
+#
+#         if query:
+#             # Run our Bing function to get the results list!
+#             result_list = run_query(query)
+#
+#     return render(request, 'rango/search.html', {'result_list': result_list})
 
 def track_url(request):
     page_id = None
